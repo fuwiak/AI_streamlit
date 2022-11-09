@@ -9,7 +9,8 @@ from pandas_geojson import to_geojson
 import plotly.graph_objects as go
 
 # Title
-st.title('My first app')
+st.title('Новости')
+
 
 # df = pd.read_csv('Kazachstan_dataset.csv', sep=',')
 #
