@@ -83,3 +83,4 @@ validators==0.20.0
 wheel==0.37.1
 zipp==3.10.0
 twint
+plotly
