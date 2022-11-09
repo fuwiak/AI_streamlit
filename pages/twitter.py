@@ -10,16 +10,23 @@ from collections import Counter
 st.set_page_config(layout="centered", page_icon="🎓", page_title="AI")
 st.title("Twitter Analysis")
 
+c = twint.Config()
+
+st.write("Enter the keyword you want to search for")
+keyword = st.text_input("Keyword", "bitcoin")
+c.Search = keyword
 
 
-#
-# # c = twint.Config()
-# # c.Search = '#blacklivesmatter'
-# # c.Limit = 2
-# # twint.run.Search(c)
-# #
-# # c.Pandas = True
-# # Tweets_df = twint.storage.panda.Tweets_df
+c.Limit = 2
+twint.run.Search(c)
+
+c.Pandas = True
+Tweets_df = twint.storage.panda.Tweets_df
+
+
+
+
+
 # # Tweets_df.to_csv('tweets.csv')
 #
 # #configuration
