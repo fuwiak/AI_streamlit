@@ -22,10 +22,9 @@ twint.run.Search(c)
 
 c.Pandas = True
 Tweets_df = twint.storage.panda.Tweets_df
+Tweets_df.to_csv('tweets.csv')
 
-
-
-
+#configuration
 
 # # Tweets_df.to_csv('tweets.csv')
 #
