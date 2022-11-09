@@ -3,7 +3,7 @@ import time
 import streamlit as st
 from streamlit.components.v1 import iframe
 import pandas as pd
-import plotly.express as px
+# import plotly.express as px
 import googletrans
 from fpdf import FPDF
 import base64
