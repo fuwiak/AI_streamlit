@@ -7,7 +7,6 @@ import pandas as pd
 # import googletrans
 # from fpdf import FPDF
 import base64
-# import pyautogui
 
 from pytrends.request import TrendReq
 
