@@ -17,7 +17,7 @@ from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode
 
 
 
-st.set_page_config(layout="centered", page_icon="🎓", page_title="Diploma Generator")
+st.set_page_config(layout="centered", page_icon="🎓", page_title="AI")
 st.title("Google Trends")
 
 #sl select date range
