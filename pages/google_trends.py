@@ -7,14 +7,14 @@ import pandas as pd
 # import googletrans
 # from fpdf import FPDF
 import base64
-import pyautogui
+# import pyautogui
 
 from pytrends.request import TrendReq
 
 from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode
 
 
-sourcelang = googletrans.LANGUAGES
+# sourcelang = googletrans.LANGUAGES
 
 
 
