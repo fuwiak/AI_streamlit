@@ -5,6 +5,7 @@ from streamlit.components.v1 import iframe
 import pandas as pd
 import twint
 from collections import Counter
+from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode
 
 
 st.set_page_config(layout="centered", page_icon="🎓", page_title="AI")

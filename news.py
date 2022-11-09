@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import requests
 import streamlit as st
-from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode
+
 
 import pandas as pd
 import plotly.express as px
