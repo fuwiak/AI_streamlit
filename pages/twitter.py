@@ -18,10 +18,12 @@ keyword = st.text_input("Keyword", "bitcoin")
 c.Search = keyword
 
 
-c.Limit = 2
-twint.run.Search(c)
-
+c.Limit = 20
 c.Pandas = True
+twint.run.Search(c)
+# twint.storage.panda.Tweets_df.to_csv('tweets.csv')
+
+
 Tweets_df = twint.storage.panda.Tweets_df
 # Tweets_df.to_csv('tweets.csv')
 
@@ -46,26 +48,20 @@ def show_table_grid(data):
 
 
 st.write("Posts")
+#show df streamlit
+# temp = pd.read_csv('tweets.csv')
+
+# st.write(Tweets_df)
+
+
 grid_response = show_table_grid(Tweets_df)
 data = grid_response['data']
 selected = grid_response['selected_rows']
-df = pd.DataFrame(selected) #Pass the selected rows to a new dataframe df
+df_out = pd.DataFrame(selected) #Pass the selected rows to a new dataframe df
 
-
-
-
-#configuration
-
-# # Tweets_df.to_csv('tweets.csv')
-#
-# #configuration
-# config = twint.Config()
-# config.Search = "bitcoin"
-# config.Lang = "en"
-# config.Limit = 100
-# # config.Since = "2019–04–29"
-# # config.Until = "2020–04–29"
-# config.Store_json = True
-# config.Output = "bitcoin_out.json"
-# #running search
-# twint.run.Search(config)
+st.download_button(
+     label="Download data as CSV",
+     data=Tweets_df.to_csv().encode(),
+     file_name=f'twitter_{keyword}.csv',
+     mime='text/csv',
+ )
