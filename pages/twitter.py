@@ -28,7 +28,7 @@ end_date = st.date_input("End date", value=None, min_value=None, max_value=None,
 
 query2 = keyword + f" lang:{lang} until:{start_date} since:{end_date}"
 
-query = "Kazachstan lang:ru until:2022-01-01 since:2022-01-01"
+query = "Kazachstan lang:ru until:2022-01-01 since:2021-01-01"
 
 def show_table_grid(data):
     gb = GridOptionsBuilder.from_dataframe(data)
