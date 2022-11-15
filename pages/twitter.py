@@ -26,9 +26,9 @@ st.write("Select the date range of the tweets you want to search for")
 start_date = st.date_input("Start date", value=None, min_value=None, max_value=None, key=None)
 end_date = st.date_input("End date", value=None, min_value=None, max_value=None, key=None)
 
-# query = keyword + f" lang:{lang} until:{start_date} since:{end_date}"
+query = keyword + f" lang:{lang} until:{start_date} since:{end_date}"
 
-query ="bitcoin lang:en until:2021-01-01 since:2022-01-01"
+# query ="bitcoin lang:en until:2021-01-01 since:2022-01-01"
 def show_table_grid(data):
     gb = GridOptionsBuilder.from_dataframe(data)
     gb.configure_pagination(paginationAutoPageSize=True) #Add pagination
