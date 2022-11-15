@@ -62,6 +62,7 @@ if st.button("Run"):
         tweets_list2.append([tweet.date, tweet.content, tweet.user.username])
 
     # Creating a dataframe from the tweets list above
+    global tweets_df2
     tweets_df2 = pd.DataFrame(tweets_list2, columns=['Datetime', 'Text', 'Username'])
 
     # Display first 5 entries from dataframe
@@ -69,11 +70,19 @@ if st.button("Run"):
     show_table_grid(tweets_df2)
 
 
-#save to csv button
+
+
+
+#save to csv button after running
+
+
+
+
 if st.button("Save to CSV"):
-    data = tweets_df2
-    data.to_csv(f'{keyword}_tweets.csv', index=False)
-    st.write("Downloaded")
+    tweets_df2.to_csv("tweets.csv", index=False)
+    st.write("Saved to CSV")
+    st.balloons()
+
 
 
 # Tweet = tweets_df2
