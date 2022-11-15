@@ -52,6 +52,8 @@ def show_table_grid(data):
 #run button
 if st.button("Run"):
     tweets_list2 = []
+    #show query
+    st.write(query)
     for i,tweet in enumerate(sntwitter.TwitterSearchScraper(query).get_items()):
         if i>limit:
             break
