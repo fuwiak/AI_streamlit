@@ -6,6 +6,7 @@ import pandas as pd
 import twint
 from collections import Counter
 from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode
+import snscrape.modules.twitter as sntwitter
 
 st.set_page_config(layout="centered", page_icon="🎓", page_title="AI")
 st.title("Twitter Analysis")
@@ -16,30 +17,40 @@ if st.button("Reset"):
 #reset IP address to avoid getting banned streamlit
 
 
-c = twint.Config()
+# c = twint.Config()
 
 st.write("Enter the keyword you want to search for")
 keyword = st.text_input("Keyword", "bitcoin")
-c.Search = keyword
+# c.Search = keyword
 
 # c.Limit as input
 st.write("Enter the number of tweets you want to search for")
 limit = st.number_input("Limit", 5)
-c.Limit = limit
-c.Pandas = True
-twint.run.Search(c)
+tweets_list2 = []
+for i,tweet in enumerate(sntwitter.TwitterSearchScraper('lang:ru until:2022-02-01 since:2021-01-01').get_items()):
+    if i>10:
+        break
+    tweets_list2.append([tweet.date, tweet.content, tweet.user.username])
+
+# Creating a dataframe from the tweets list above
+tweets_df2 = pd.DataFrame(tweets_list2, columns=['Datetime', 'Text', 'Username'])
+
+
+# c.Limit = limit
+# c.Pandas = True
+# twint.run.Search(c)
 
 #save to csv button
 if st.button("Save to CSV"):
-    data = twint.storage.panda.Tweets_df
+    data = tweets_df2
     data.to_csv('tweets.csv', index=False)
     st.write("Downloaded")
 
 # twint.storage.panda.Tweets_df.to_csv('tweets.csv')
 
+Tweet = tweets_df2
 
-
-Tweets_df = twint.storage.panda.Tweets_df
+# Tweets_df = twint.storage.panda.Tweets_df
 # Tweets_df.to_csv('tweets.csv')
 
 def show_table_grid(data):
@@ -69,14 +80,14 @@ st.write("Posts")
 # st.write(Tweets_df)
 
 
-grid_response = show_table_grid(Tweets_df)
+grid_response = show_table_grid(tweets_df2)
 data = grid_response['data']
 selected = grid_response['selected_rows']
 df_out = pd.DataFrame(selected) #Pass the selected rows to a new dataframe df
 
 st.download_button(
      label="Download data as CSV",
-     data=Tweets_df.to_csv().encode(),
+     data=tweets_df2.to_csv().encode(),
      file_name=f'twitter_{keyword}.csv',
      mime='text/csv',
  )
