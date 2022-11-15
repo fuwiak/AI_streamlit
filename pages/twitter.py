@@ -13,6 +13,9 @@ st.title("Twitter Analysis")
 if st.button("Reset"):
     st.experimental_rerun()
 
+#reset IP address to avoid getting banned streamlit
+
+
 c = twint.Config()
 
 st.write("Enter the keyword you want to search for")
