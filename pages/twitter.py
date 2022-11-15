@@ -28,27 +28,6 @@ end_date = st.date_input("End date", value=None, min_value=None, max_value=None,
 
 query = keyword + f" lang:{lang} until{start_date} since:{end_date} -filter:retweets"
 
-#run button
-if st.button("Run"):
-    tweets_list2 = []
-    for i,tweet in enumerate(sntwitter.TwitterSearchScraper(query).get_items()):
-        if i>limit:
-            break
-        tweets_list2.append([tweet.date, tweet.content, tweet.user.username])
-
-    # Creating a dataframe from the tweets list above
-    tweets_df2 = pd.DataFrame(tweets_list2, columns=['Datetime', 'Text', 'Username'])
-
-#save to csv button
-if st.button("Save to CSV"):
-    data = tweets_df2
-    data.to_csv(f'{keyword}_tweets.csv', index=False)
-    st.write("Downloaded")
-
-
-# Tweet = tweets_df2
-
-
 def show_table_grid(data):
     gb = GridOptionsBuilder.from_dataframe(data)
     gb.configure_pagination(paginationAutoPageSize=True) #Add pagination
@@ -67,6 +46,34 @@ def show_table_grid(data):
         reload_data=True
     )
     return grid_response
+
+
+#run button
+if st.button("Run"):
+    tweets_list2 = []
+    for i,tweet in enumerate(sntwitter.TwitterSearchScraper(query).get_items()):
+        if i>limit:
+            break
+        tweets_list2.append([tweet.date, tweet.content, tweet.user.username])
+
+    # Creating a dataframe from the tweets list above
+    tweets_df2 = pd.DataFrame(tweets_list2, columns=['Datetime', 'Text', 'Username'])
+
+    # Display first 5 entries from dataframe
+    st.write(tweets_df2.head())
+    show_table_grid(tweets_df2)
+
+
+#save to csv button
+if st.button("Save to CSV"):
+    data = tweets_df2
+    data.to_csv(f'{keyword}_tweets.csv', index=False)
+    st.write("Downloaded")
+
+
+# Tweet = tweets_df2
+
+
 
 
 st.write("Posts")
