@@ -39,8 +39,6 @@ if st.button("Run"):
     # Creating a dataframe from the tweets list above
     tweets_df2 = pd.DataFrame(tweets_list2, columns=['Datetime', 'Text', 'Username'])
 
-
-
 #save to csv button
 if st.button("Save to CSV"):
     data = tweets_df2
@@ -78,10 +76,10 @@ st.write("Posts")
 # st.write(Tweets_df)
 
 
-grid_response = show_table_grid(tweets_df2)
-data = grid_response['data']
-selected = grid_response['selected_rows']
-df_out = pd.DataFrame(selected) #Pass the selected rows to a new dataframe df
+# grid_response = show_table_grid(tweets_df2)
+# data = grid_response['data']
+# selected = grid_response['selected_rows']
+# df_out = pd.DataFrame(selected) #Pass the selected rows to a new dataframe df
 
 st.download_button(
      label="Download data as CSV",
