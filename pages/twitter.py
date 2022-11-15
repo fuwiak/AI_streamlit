@@ -10,6 +10,9 @@ from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode
 st.set_page_config(layout="centered", page_icon="🎓", page_title="AI")
 st.title("Twitter Analysis")
 
+if st.button("Reset"):
+    st.experimental_rerun()
+
 c = twint.Config()
 
 st.write("Enter the keyword you want to search for")
