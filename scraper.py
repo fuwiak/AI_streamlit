@@ -6,6 +6,8 @@ tweets_list2 = []
 
 # Using TwitterSearchScraper to scrape
 # data and append tweets to list
+
+
 for i,tweet in enumerate(sntwitter.TwitterSearchScraper('lang:ru until:2022-02-01 since:2021-01-01').get_items()):
     if i>10:
         break
