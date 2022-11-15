@@ -78,10 +78,10 @@ if st.button("Run"):
 
 
 
-if st.button("Save to CSV"):
-    tweets_df2.to_csv("tweets.csv", index=False)
-    st.write("Saved to CSV")
-    st.balloons()
+# if st.button("Save to CSV"):
+#     tweets_df2.to_csv("tweets.csv", index=False)
+#     st.write("Saved to CSV")
+#     st.balloons()
 
 
 
@@ -102,9 +102,11 @@ st.write("Posts")
 # selected = grid_response['selected_rows']
 # df_out = pd.DataFrame(selected) #Pass the selected rows to a new dataframe df
 
-# st.download_button(
-#      label="Download data as CSV",
-#      data=tweets_df2.to_csv().encode(),
-#      file_name=f'twitter_{keyword}.csv',
-#      mime='text/csv',
-#  )
+st.download_button(
+     label="Download data as CSV",
+     data=tweets_df2.to_csv().encode(),
+     file_name=f'twitter_{keyword}.csv',
+     mime='text/csv',
+ )
+st.write("Saved to CSV")
+st.balloons()
