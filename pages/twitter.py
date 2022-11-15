@@ -68,6 +68,8 @@ if st.button("Run"):
     # Display first 5 entries from dataframe
     st.write(tweets_df2.head())
     show_table_grid(tweets_df2)
+    #st balloons
+    st.balloons()
 
 
 
