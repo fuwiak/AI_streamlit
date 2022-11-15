@@ -19,11 +19,21 @@ st.write("Enter the keyword you want to search for")
 keyword = st.text_input("Keyword", "bitcoin")
 c.Search = keyword
 
-
-c.Limit = 20
+# c.Limit as input
+st.write("Enter the number of tweets you want to search for")
+limit = st.number_input("Limit", 5)
+c.Limit = limit
 c.Pandas = True
 twint.run.Search(c)
+
+#save to csv button
+if st.button("Save to CSV"):
+    data = twint.storage.panda.Tweets_df
+    data.to_csv('tweets.csv', index=False)
+    st.write("Downloaded")
+
 # twint.storage.panda.Tweets_df.to_csv('tweets.csv')
+
 
 
 Tweets_df = twint.storage.panda.Tweets_df
