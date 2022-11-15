@@ -48,7 +48,7 @@ if st.button("Save to CSV"):
     st.write("Downloaded")
 
 
-Tweet = tweets_df2
+# Tweet = tweets_df2
 
 
 def show_table_grid(data):
