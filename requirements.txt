@@ -86,3 +86,4 @@ twint
 plotly
 nest-asyncio
 openpyxl
+snscrape
