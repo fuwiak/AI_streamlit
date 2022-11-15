@@ -26,7 +26,7 @@ st.write("Select the date range of the tweets you want to search for")
 start_date = st.date_input("Start date", value=None, min_value=None, max_value=None, key=None)
 end_date = st.date_input("End date", value=None, min_value=None, max_value=None, key=None)
 
-query = keyword + f" lang:{lang} until{start_date} since:{end_date} -filter:retweets"
+query = keyword + f" lang:{lang} until:{start_date} since:{end_date}"
 
 def show_table_grid(data):
     gb = GridOptionsBuilder.from_dataframe(data)
