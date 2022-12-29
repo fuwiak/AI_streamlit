@@ -32,3 +32,4 @@ if uploaded_file is not None:
         plt.imshow(wordcloud, interpolation="bilinear")
         plt.axis("off")
         st.pyplot(fig)
+
